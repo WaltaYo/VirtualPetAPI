@@ -20,7 +20,7 @@ public class AdopterModel extends ContactModel {
      * Default Constructor
      */
     public AdopterModel() {
-        super();
+        
     }
 
     /**

@@ -72,18 +72,18 @@ public class RoboticPetService {
      * 
      * @return robotic pets with in the given filters
      */
-    public Iterable<RoboticPetModel> findByZip(String zip) {
-        Iterable<RoboticPetModel> roboticPets = new ArrayList<>();
-        try {
-            if (zip != null && zip.length() > 2) {
-                zip = zip.substring(0, 2);
-                roboticPets = roboticPetRepository.findByZip(zip);
-            }
-        } catch (Exception ex) {
-            throw ex;
-        }
-        return roboticPets;
-    }
+    // public Iterable<RoboticPetModel> findByZip(String zip) {
+    //     Iterable<RoboticPetModel> roboticPets = new ArrayList<>();
+    //     try {
+    //         if (zip != null && zip.length() > 2) {
+    //             zip = zip.substring(0, 2);
+    //             roboticPets = roboticPetRepository.findByZip(zip);
+    //         }
+    //     } catch (Exception ex) {
+    //         throw ex;
+    //     }
+    //     return roboticPets;
+    // }
     
     /**
      * Method to find an robotic pet by model

@@ -73,15 +73,12 @@ public class VolunteerService {
      * 
      * @return volunteers with in the given filters
      */
-    public Iterable<VolunteerModel> findByNameZip(String name, String zip) {
+    public Iterable<VolunteerModel> findByName(String name) {
         Iterable<VolunteerModel> volunteers = new ArrayList<>();
         try {
-            if (zip !=null && zip.length()> 2) {
-                 zip = zip.substring(0,2);
-                 volunteers = volunteerRepository.findByNameZip(name, zip);
-            } else {
-                volunteers = volunteerRepository.findByName(name);
-            }
+            
+                 volunteers = volunteerRepository.findByName(name);
+    
         } catch (Exception ex) {
             throw ex;
         }

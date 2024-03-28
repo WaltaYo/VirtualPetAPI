@@ -55,8 +55,8 @@ public class VolunteerController {
      * @return list of volunteers within filter requirements
      */
     @GetMapping("{name}/{zip}")
-    public Iterable<VolunteerModel> getByNameZip(@PathVariable String name, @PathVariable String zip) {
-        return volunteerService.findByNameZip(name, zip);
+    public Iterable<VolunteerModel> getByName(@PathVariable String name) {
+        return volunteerService.findByName(name);
     }
 
     /**

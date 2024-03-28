@@ -10,9 +10,9 @@ public interface AdopterRepository extends CrudRepository<AdopterModel, Long>{
 
     Iterable<AdopterModel> findByName(String name);
 
-    Iterable<AdopterModel> findByNameZip(String name, String zip);
+    // Iterable<AdopterModel> findByNameZip(String name, String zip);
 
     Iterable<AdopterModel> findByPreferredPetType(String preferredPetType);
     
-    Iterable<AdopterModel> findByPreferredPetTypeZip(String preferredPetType, String zip);
+    // Iterable<AdopterModel> findByPreferredPetTypeZip(String preferredPetType, String zip);
 }

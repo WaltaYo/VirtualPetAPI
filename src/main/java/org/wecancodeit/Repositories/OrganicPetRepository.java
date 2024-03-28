@@ -11,8 +11,6 @@ public interface OrganicPetRepository extends CrudRepository<OrganicPetModel, Lo
 
     Iterable<OrganicPetModel> findByBreed(String breed);
 
-    Iterable<OrganicPetModel> findByZip(String zip);
-
     Iterable<OrganicPetModel> findByPetType(PetTypeEnum petType);
 
 }

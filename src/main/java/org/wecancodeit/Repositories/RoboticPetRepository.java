@@ -11,8 +11,6 @@ public interface RoboticPetRepository extends CrudRepository<RoboticPetModel, Lo
 
     Iterable<RoboticPetModel> findByModel(String petModel);
 
-    Iterable<RoboticPetModel> findByZip(String zip);
-
     Iterable<RoboticPetModel> findByPetType(PetTypeEnum petType);
 
     Iterable<RoboticPetModel> findByManufacturer(String petManufacturer);

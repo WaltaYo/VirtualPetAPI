@@ -72,16 +72,14 @@ public class AdopterService {
      * 
      * @return adopters with in the given filters
      */
-    public Iterable<AdopterModel> findByNameZip(String name, String zip) {
+    public Iterable<AdopterModel> findByName(String name) {
         Iterable<AdopterModel> adopters = new ArrayList<>();
         try {
-            if (zip !=null && zip.length()> 2) {
-                 zip = zip.substring(0,2);
-                 adopters = adopterRepository.findByNameZip(name, zip);
-            } else {
-                adopters = adopterRepository.findByName(name);
+           
+                 adopters = adopterRepository.findByName(name);
             }
-        } catch (Exception ex) {
+            
+         catch (Exception ex) {
             throw ex;
         }
         return adopters;
@@ -95,16 +93,13 @@ public class AdopterService {
      * 
      * @return adopters based on zip and pet type filter
      */
-    public Iterable<AdopterModel> findByPreferredPetTypeZip(String preferredPetType, String zip) {
+    public Iterable<AdopterModel> findByPreferredPetType(String preferredPetType) {
         Iterable<AdopterModel> adopters = new ArrayList<>();
         try {
-            if (zip !=null && zip.length()> 2) {
-                 zip = zip.substring(0,2);
-                 adopters = adopterRepository.findByPreferredPetTypeZip(preferredPetType, zip);
-            } else {
+        
                 adopters = adopterRepository.findByPreferredPetType(preferredPetType);
             }
-        } catch (Exception ex) {
+         catch (Exception ex) {
             throw ex;
         }
         return adopters;

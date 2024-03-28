@@ -54,7 +54,7 @@ public class ShelterController {
      * 
      * @return list of shelters within filter requirements
      */
-    @GetMapping("{name}")
+    @GetMapping("byname/{name}")
     public Iterable<ShelterModel> getByName(@PathVariable String name) {
         return shelterService.findByName(name);
     }
@@ -66,7 +66,7 @@ public class ShelterController {
      * 
      * @return list of shelters within filter requirements
      */
-    @GetMapping("{zip}")
+    @GetMapping("by/zip{zip}")
     public Iterable<ShelterModel> getByZip(@PathVariable String zip) {
         return shelterService.findByZip(zip);
     }

@@ -11,7 +11,7 @@ import jakarta.annotation.Resource;
  * repository
  */
 @RestController
-@RequestMapping("/api/v1/organicPets/")
+@RequestMapping("/api/v1/organicpets/")
 public class OrganicPetController {
 
     @Resource
@@ -48,17 +48,6 @@ public class OrganicPetController {
         return organicPetService.findById(id);
     }
 
-    /**
-     * Method to get organicPets by zip
-     * 
-     * @param zip  zip of organic pet
-     * 
-     * @return list of organic pets within filter requirements
-     */
-    @GetMapping("{zip}")
-    public Iterable<OrganicPetModel> getByZip(@PathVariable String zip) {
-        return organicPetService.findByZip(zip);
-    }
 
     /**
      * Method to get organicPets by breed
@@ -67,7 +56,7 @@ public class OrganicPetController {
      * 
      * @return list of organic pets within filter requirements
      */
-    @GetMapping("{breed}")
+    @GetMapping("breed/{breed}")
     public Iterable<OrganicPetModel> getByBreed(@PathVariable String breed) {
         return organicPetService.findByBreed(breed);
     }
@@ -79,7 +68,7 @@ public class OrganicPetController {
      * 
      * @return list of organic pets within filter requirements
      */
-    @GetMapping("{petType}")
+    @GetMapping("petType/{petType}")
     public Iterable<OrganicPetModel> getByPetType(@PathVariable PetTypeEnum petType) {
         return organicPetService.findByPetType(petType);
     }

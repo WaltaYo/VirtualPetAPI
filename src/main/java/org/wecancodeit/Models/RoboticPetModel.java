@@ -13,10 +13,10 @@ import jakarta.validation.constraints.*;
 public class RoboticPetModel extends PetModel {
 
     @Column(length = 50, nullable = false)
-    private String petModel;
+    private String model;
 
     @Column(length = 50, nullable = false)
-    private String petManufacturer;
+    private String manufacturer;
 
     @Min(0)
     @Max(100)
@@ -54,12 +54,12 @@ public class RoboticPetModel extends PetModel {
      * @param maintenanceTaskIDs maintenance task IDs
      * @param scheduleTaskIDs    scheduled task IDs
      */
-    public RoboticPetModel(String petName, PetTypeEnum petType, String imageURL, String petModel,
-            String petManufacturer, int energyLevel, int oilLevel,
+    public RoboticPetModel(String petName, PetTypeEnum petType, String imageURL, String model,
+            String manufacturer, int energyLevel, int oilLevel,
             RoboticPetHealthEnum petHealth, ArrayList<Long> maintenanceTaskIDs, ArrayList<Long> scheduleTaskIDs) {
         super(petName, petType, imageURL, maintenanceTaskIDs, scheduleTaskIDs);
-        this.petModel = petModel;
-        this.petManufacturer = petManufacturer;
+        this.model = model;
+        this.manufacturer = manufacturer;
         this.energyLevel = energyLevel;
         this.oilLevel = oilLevel;
         this.petHealth = petHealth;
@@ -70,8 +70,8 @@ public class RoboticPetModel extends PetModel {
      * 
      * @return model #
      */
-    public String getPetModel() {
-        return petModel;
+    public String getModel() {
+        return model;
     }
 
     /**
@@ -79,8 +79,8 @@ public class RoboticPetModel extends PetModel {
      * 
      * @return pet manufacturer
      */
-    public String getPetManufacturer() {
-        return petManufacturer;
+    public String getManufacturer() {
+        return manufacturer;
     }
 
     /**
@@ -115,7 +115,7 @@ public class RoboticPetModel extends PetModel {
      */
     @Override
     public String toString() {
-        return super.toString() + "RoboticPetModel [petModel=" + petModel + ", petManufacturer=" + petManufacturer
+        return super.toString() + "RoboticPetModel [petModel=" + model + ", petManufacturer=" + manufacturer
                 + ", energyLevel="
                 + energyLevel + ", oilLevel=" + oilLevel + ", petHealth=" + petHealth + "]";
     }

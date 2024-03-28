@@ -11,7 +11,7 @@ import jakarta.annotation.Resource;
  * repository
  */
 @RestController
-@RequestMapping("/api/v1/roboticPets/")
+@RequestMapping("/api/v1/roboticpets/")
 public class RoboticPetController {
 
     @Resource
@@ -55,10 +55,10 @@ public class RoboticPetController {
      * 
      * @return list of robotic pets within filter requirements
      */
-    @GetMapping("{zip}")
-    public Iterable<RoboticPetModel> getByZip(@PathVariable String zip) {
-        return roboticPetService.findByZip(zip);
-    }
+    // @GetMapping("{zip}")
+    // public Iterable<RoboticPetModel> getByZip(@PathVariable String zip) {
+    //     return roboticPetService.findByZip(zip);
+    // }
 
     /**
      * Method to get roboticPets by model
@@ -67,7 +67,7 @@ public class RoboticPetController {
      * 
      * @return list of robotic pets within filter requirements
      */
-    @GetMapping("{model}")
+    @GetMapping("bymodel/{model}")
     public Iterable<RoboticPetModel> getByModel(@PathVariable String model) {
         return roboticPetService.findByModel(model);
     }
@@ -79,7 +79,7 @@ public class RoboticPetController {
      * 
      * @return list of robotic pets within filter requirements
      */
-    @GetMapping("{manufacturer}")
+    @GetMapping("bymanufactuer/{manufacturer}")
     public Iterable<RoboticPetModel> getByManufacturer(@PathVariable String manufacturer) {
         return roboticPetService.findByManufacturer(manufacturer);
     }
@@ -91,7 +91,7 @@ public class RoboticPetController {
      * 
      * @return list of robotic pets within filter requirements
      */
-    @GetMapping("{petType}")
+    @GetMapping("petType/{petType}")
     public Iterable<RoboticPetModel> getByPetType(@PathVariable PetTypeEnum petType) {
         return roboticPetService.findByPetType(petType);
     }

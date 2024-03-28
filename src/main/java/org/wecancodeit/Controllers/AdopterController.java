@@ -52,28 +52,19 @@ public class AdopterController {
      * Method to get adopters by name and zip
      * 
      * @param name name of adopter
-     * @param zip  zip of adopter
      * 
      * @return list of adopters within filter requirements
      */
-    @GetMapping("{name}/{zip}")
-    public Iterable<AdopterModel> getByNameZip(@PathVariable String name, @PathVariable String zip) {
-        return adopterService.findByNameZip(name, zip);
+    @GetMapping("name/{name}")
+    public Iterable<AdopterModel> getByName(@PathVariable String name) {
+        return adopterService.findByName(name);
     }
 
-    /**
-     * Method to get adopters by preferred pet type and zip
-     * 
-     * @param preferredPetType adopter's preferred pet type
-     * @param zip              adopter's zip
-     * 
-     * @return list of adopters within filter requirements
-     */
-    @GetMapping("{preferredPetType}/{zip}")
-    public Iterable<AdopterModel> findByPreferredPetTypeZip(@PathVariable String preferredPetType,
-            @PathVariable String zip) {
-        return adopterService.findByPreferredPetTypeZip(preferredPetType, zip);
-    }
+
+    // @GetMapping("{preferredPetType}/{zip}")
+    // public Iterable<AdopterModel> findByPreferredPetType(@PathVariable String preferredPetType) {
+    //     return adopterService.findByPreferredPetType(preferredPetType);
+    // }
 
     /**
      * Method to delete a adopter

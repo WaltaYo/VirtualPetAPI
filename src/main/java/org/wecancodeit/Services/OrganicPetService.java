@@ -66,25 +66,6 @@ public class OrganicPetService{
         return organicPet;
     }
 
-    /**
-     * Method to find an organic pet by zip
-     * 
-     * @param zip organic pet zip
-     * 
-     * @return organic pets with in the given filters
-     */
-    public Iterable<OrganicPetModel> findByZip(String zip) {
-        Iterable<OrganicPetModel> organicPets = new ArrayList<>();
-        try {
-            if (zip != null && zip.length() > 2) {
-                zip = zip.substring(0, 2);
-                organicPets = organicPetRepository.findByZip(zip);
-            }
-        } catch (Exception ex) {
-            throw ex;
-        }
-        return organicPets;
-    }
 
     /**
      * Method to find an organic pet by breed
