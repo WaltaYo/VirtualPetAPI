@@ -111,6 +111,22 @@ public class RoboticPetModel extends PetModel {
     }
 
     /**
+     * Method to get shelter
+     * @return
+     */
+    public ShelterModel getShelterModel() {
+        return shelterModel;
+    }
+
+    /**
+     * Method to set shelter
+     * @param shelterModel
+     */
+    public void setShelterModel(ShelterModel shelterModel) {
+        this.shelterModel = shelterModel;
+    }
+
+    /**
      * Override method for toString
      */
     @Override

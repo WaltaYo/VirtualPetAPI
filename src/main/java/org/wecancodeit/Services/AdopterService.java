@@ -29,10 +29,25 @@ public class AdopterService {
         this.adopterRepository = adopterRepository;
     }
 
+    // /**
+    //  * Method to find all Adopters by shelter id
+    //  * 
+    //  * @return All adopters
+    //  */
+    // public Iterable<AdopterModel> findAll(long shelterId){
+    //     Iterable<AdopterModel> adopters = new ArrayList<>();
+    //     try {
+    //         adopters = adopterRepository.findAll(shelterId);
+    //     } catch (Exception ex) {
+    //         throw ex;
+    //     }
+    //     return adopters;
+    // }
+
+
     /**
-     * Method to find all Adopters
      * 
-     * @return All adopters
+     * @return
      */
     public Iterable<AdopterModel> findAll(){
         Iterable<AdopterModel> adopters = new ArrayList<>();
@@ -43,6 +58,7 @@ public class AdopterService {
         }
         return adopters;
     }
+
 
     /**
      * Method to find adopters by ID

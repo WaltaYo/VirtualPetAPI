@@ -123,6 +123,14 @@ public class OrganicPetModel extends PetModel {
         return petFixed;
     }
 
+    public ShelterModel getShelterModel() {
+        return shelterModel;
+    }
+
+    public void setShelterModel(ShelterModel shelterModel) {
+        this.shelterModel = shelterModel;
+    }
+
     /**
      * Override method for the toString
      */

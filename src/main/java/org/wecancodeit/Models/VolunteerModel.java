@@ -34,10 +34,12 @@ public class VolunteerModel extends ContactModel {
      * @param imageURL     volunteer's image url
      */
     public VolunteerModel(String name, String addressLine1, String addressLine2, String city, String state,
-            String zip, String phoneNumber, String email, String imageURL) {
+            String zip, String phoneNumber, String email, String imageUrl) {
         super(name, addressLine1, addressLine2, city, state,
-                zip, phoneNumber, email, imageURL);
+                zip, phoneNumber, email, imageUrl);
     }
+
+    
 
     /**
      * Override method for toString
@@ -45,6 +47,14 @@ public class VolunteerModel extends ContactModel {
     @Override
     public String toString() {
         return super.toString() + "VolunteerModel []";
+    }
+
+    public Collection<ShelterModel> getShelterModels() {
+        return shelterModels;
+    }
+
+    public void setShelterModels(Collection<ShelterModel> shelterModels) {
+        this.shelterModels = shelterModels;
     }
 
 }

@@ -11,7 +11,7 @@ import jakarta.persistence.*;
 @Table(name = "t_Shelter")
 public class ShelterModel extends ContactModel {
 
-    private String shelterWebSite;
+    private String website;
 
     @OneToMany(mappedBy = "shelterModel", cascade = CascadeType.ALL)
     private Collection<OrganicPetModel> organicPets;
@@ -47,11 +47,11 @@ public class ShelterModel extends ContactModel {
      * @param imageURL       shelter image url
      * @param shelterWebSite shelter website
      */
-    public ShelterModel(String name, String addressLine1, String addressLine2, String city, String state,
+    public ShelterModel( String name, String addressLine1, String addressLine2, String city, String state,
             String zip, String phoneNumber, String email, String imageURL,
-            String shelterWebSite) {
+            String website) {
         super(name, addressLine1, addressLine2, city, state, zip, phoneNumber, email, imageURL);
-        this.shelterWebSite = shelterWebSite;
+        this.website = website;
         this.organicPets = new ArrayList<>();
         this.roboticPets = new ArrayList<>();
     }
@@ -61,8 +61,8 @@ public class ShelterModel extends ContactModel {
      * 
      * @return shelter website
      */
-    public String getShelterWebSite() {
-        return shelterWebSite;
+    public String getWebsite() {
+        return website;
     }
 
     /**
@@ -106,7 +106,7 @@ public class ShelterModel extends ContactModel {
      */
     @Override
     public String toString() {
-        return super.toString() + "ShelterModel [shelterWebSite=" + shelterWebSite + "]";
+        return super.toString() + "ShelterModel [shelterWebSite=" + website + "]";
     }
 
 }

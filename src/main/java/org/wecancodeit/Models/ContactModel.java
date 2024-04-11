@@ -34,10 +34,10 @@ public abstract class ContactModel {
     @Column(length = 10, nullable = true)
     private String phoneNumber;
 
-    @Column(length = 150, nullable = false)
+    @Column(length = 150, nullable = true)
     private String email;
 
-    private String imageURL;
+    private String imageUrl;
 
     /**
      * Default Constructor
@@ -59,7 +59,7 @@ public abstract class ContactModel {
      * @param imageURL     image URL
      */
     public ContactModel(String name, String addressLine1, String addressLine2, String city, String state,
-            String zip, String phoneNumber, String email, String imageURL) {
+            String zip, String phoneNumber, String email, String imageUrl) {
         this.name = name;
         this.addressLine1 = addressLine1;
         this.addressLine2 = addressLine2;
@@ -68,7 +68,7 @@ public abstract class ContactModel {
         this.zip = zip;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.imageURL = imageURL;
+        this.imageUrl = imageUrl;
     }
 
     /**
@@ -166,8 +166,8 @@ public abstract class ContactModel {
      * 
      * @return image URL
      */
-    public String getImageURL() {
-        return imageURL;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     /**
@@ -177,7 +177,7 @@ public abstract class ContactModel {
     public String toString() {
         return "ContactModel [contactID=" + id + ", name=" + name + ", addressLine1=" + addressLine1
                 + ", addressLine2=" + addressLine2 + ", city=" + city + ", state=" + state + ", zip=" + zip
-                + ", phoneNumber=" + phoneNumber + ", email=" + email + ", imageURL=" + imageURL + "]";
+                + ", phoneNumber=" + phoneNumber + ", email=" + email + ", imageURL=" + imageUrl + "]";
     }
 
 }

@@ -36,6 +36,16 @@ public class AdopterController {
         return adopterService.findAll();
     }
 
+    // /**
+    //  * Method to map getting adopters by shelterId
+    //  * @param shelterId
+    //  * @return
+    //  */
+    // @GetMapping("shelter/{shelterId}")
+    // public Iterable<AdopterModel> getAllAdopters(@PathVariable long shelterId) {
+    //     return adopterService.findAll(shelterId);
+    // }
+
     /**
      * Method to get a adopter by id
      * 
@@ -59,7 +69,6 @@ public class AdopterController {
     public Iterable<AdopterModel> getByName(@PathVariable String name) {
         return adopterService.findByName(name);
     }
-
 
     // @GetMapping("{preferredPetType}/{zip}")
     // public Iterable<AdopterModel> findByPreferredPetType(@PathVariable String preferredPetType) {

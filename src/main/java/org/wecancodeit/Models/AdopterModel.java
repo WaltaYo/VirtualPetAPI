@@ -1,6 +1,9 @@
 package org.wecancodeit.Models;
 
 import org.wecancodeit.Models.Enums.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 /**
@@ -20,7 +23,7 @@ public class AdopterModel extends ContactModel {
      * Default Constructor
      */
     public AdopterModel() {
-        
+
     }
 
     /**
@@ -40,9 +43,9 @@ public class AdopterModel extends ContactModel {
      * @param notes
      */
     public AdopterModel(String name, String addressLine1, String addressLine2, String city, String state, String zip,
-            String phoneNumber, String email, String imageURL, PetTypeEnum preferredPetType,
+            String phoneNumber, String email, String imageUrl, PetTypeEnum preferredPetType,
             AdoptionStatusEnum adoptionStatus, String notes) {
-        super(name, addressLine1, addressLine2, city, state, zip, phoneNumber, email, imageURL);
+        super(name, addressLine1, addressLine2, city, state, zip, phoneNumber, email, imageUrl);
         this.preferredPetType = preferredPetType;
         this.adoptionStatus = adoptionStatus;
         this.notes = notes;
@@ -67,6 +70,11 @@ public class AdopterModel extends ContactModel {
 
     public ShelterModel getShelterModel() {
         return shelterModel;
+    }
+
+    @JsonIgnore
+    public void setShelterModel(ShelterModel shelterModel) {
+        this.shelterModel = shelterModel;
     }
 
     /**

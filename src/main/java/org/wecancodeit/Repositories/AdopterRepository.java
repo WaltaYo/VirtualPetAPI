@@ -8,11 +8,29 @@ import org.wecancodeit.Models.AdopterModel;
  */
 public interface AdopterRepository extends CrudRepository<AdopterModel, Long>{
 
+    /**
+     * 
+     * @param name
+     * @return
+     */
     Iterable<AdopterModel> findByName(String name);
 
-    // Iterable<AdopterModel> findByNameZip(String name, String zip);
-
+   
+    /**
+     * 
+     * @param preferredPetType
+     * @return
+     */
     Iterable<AdopterModel> findByPreferredPetType(String preferredPetType);
+
+    // /**
+    //  * 
+    //  * @param shelterId
+    //  * @return
+    //  */
+    // Iterable<AdopterModel> findAll(long shelterId);
+
+
     
-    // Iterable<AdopterModel> findByPreferredPetTypeZip(String preferredPetType, String zip);
+    
 }
