@@ -1,6 +1,9 @@
 package org.wecancodeit.Models;
 
 import java.util.Collection;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 /**
@@ -11,7 +14,7 @@ import jakarta.persistence.*;
 public class VolunteerModel extends ContactModel {
 
     @ManyToMany(mappedBy = "volunteers")
-    private Collection<ShelterModel> shelterModels;
+    private Collection<ShelterModel> shelterModel;
 
     /**
      * Default Constructor
@@ -49,12 +52,16 @@ public class VolunteerModel extends ContactModel {
         return super.toString() + "VolunteerModel []";
     }
 
-    public Collection<ShelterModel> getShelterModels() {
-        return shelterModels;
+    @JsonIgnore
+    public Collection<ShelterModel> getShelterModel() {
+        return shelterModel;
     }
 
-    public void setShelterModels(Collection<ShelterModel> shelterModels) {
-        this.shelterModels = shelterModels;
+    public void setShelterModel(Collection<ShelterModel> shelterModel) {
+        this.shelterModel = shelterModel;
     }
 
+ 
+
+    
 }

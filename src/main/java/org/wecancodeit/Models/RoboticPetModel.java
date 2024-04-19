@@ -2,6 +2,9 @@ package org.wecancodeit.Models;
 
 import java.util.ArrayList;
 import org.wecancodeit.Models.Enums.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
@@ -114,7 +117,8 @@ public class RoboticPetModel extends PetModel {
      * Method to get shelter
      * @return
      */
-    public ShelterModel getShelterModel() {
+    @JsonIgnore
+     public ShelterModel getShelterModel() {
         return shelterModel;
     }
 

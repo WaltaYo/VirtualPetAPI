@@ -2,6 +2,8 @@ package org.wecancodeit.Models;
 
 import java.util.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 /**
@@ -54,6 +56,7 @@ public class ShelterModel extends ContactModel {
         this.website = website;
         this.organicPets = new ArrayList<>();
         this.roboticPets = new ArrayList<>();
+        this.volunteers = new ArrayList<>();
     }
 
     /**
@@ -97,7 +100,8 @@ public class ShelterModel extends ContactModel {
      * 
      * @return volunteers in the shelter
      */
-    public Collection<VolunteerModel> getVolunteers() {
+    @JsonIgnore
+     public Collection<VolunteerModel> getVolunteers() {
         return volunteers;
     }
 

@@ -1,7 +1,9 @@
 package org.wecancodeit.Controllers;
 
 import org.springframework.web.bind.annotation.*;
+import org.wecancodeit.Dto.AdopterDto;
 import org.wecancodeit.Models.AdopterModel;
+import org.wecancodeit.Models.ShelterModel;
 import org.wecancodeit.Services.AdopterService;
 
 import jakarta.annotation.Resource;
@@ -37,13 +39,13 @@ public class AdopterController {
     }
 
     // /**
-    //  * Method to map getting adopters by shelterId
-    //  * @param shelterId
-    //  * @return
-    //  */
+    // * Method to map getting adopters by shelterId
+    // * @param shelterId
+    // * @return
+    // */
     // @GetMapping("shelter/{shelterId}")
     // public Iterable<AdopterModel> getAllAdopters(@PathVariable long shelterId) {
-    //     return adopterService.findAll(shelterId);
+    // return adopterService.findAll(shelterId);
     // }
 
     /**
@@ -54,8 +56,13 @@ public class AdopterController {
      * @return adopter
      */
     @GetMapping("{id}")
-    public AdopterModel getAdopter(@PathVariable Long id) {
-        return adopterService.findById(id);
+    public AdopterDto getAdopter(@PathVariable Long id) { // put in adopter dto instead of model
+        AdopterModel model = adopterService.findById(id);
+        AdopterDto dto = new AdopterDto(model);
+        // ShelterModel shelterModel = null;
+        // dto.setShelterModel(shelterModel);
+        // dto.setShelterId(shelterModel.getID());
+        return dto;
     }
 
     /**
@@ -69,11 +76,6 @@ public class AdopterController {
     public Iterable<AdopterModel> getByName(@PathVariable String name) {
         return adopterService.findByName(name);
     }
-
-    // @GetMapping("{preferredPetType}/{zip}")
-    // public Iterable<AdopterModel> findByPreferredPetType(@PathVariable String preferredPetType) {
-    //     return adopterService.findByPreferredPetType(preferredPetType);
-    // }
 
     /**
      * Method to delete a adopter
@@ -95,7 +97,9 @@ public class AdopterController {
      * @return adopter added
      */
     @PostMapping
-    public AdopterModel addAdopter(@RequestBody AdopterModel adopterModel) {
+    public AdopterModel addAdopter(@RequestBody AdopterDto adopterDto) {
+        AdopterModel adopterModel = adopterDto.convertToModel();
+        adopterModel.setID(adopterDto.getId());
         return adopterService.saveAdopter(adopterModel);
     }
 

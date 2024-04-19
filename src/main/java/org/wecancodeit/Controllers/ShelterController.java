@@ -1,6 +1,7 @@
 package org.wecancodeit.Controllers;
 
 import org.springframework.web.bind.annotation.*;
+import org.wecancodeit.Dto.ShelterLookupDto;
 import org.wecancodeit.Models.ShelterModel;
 import org.wecancodeit.Services.ShelterService;
 
@@ -23,6 +24,15 @@ public class ShelterController {
      */
     public ShelterController(ShelterService shelterService) {
         this.shelterService = shelterService;
+    }
+
+    /**
+     * Method to look up shelter by id, no other info. only basics.
+     * @return shelter name and id
+     */
+    @GetMapping("shelterLookUp")
+    public Iterable<ShelterLookupDto> getShelterLookUp(){
+        return  shelterService.getLookUp();
     }
 
     /**

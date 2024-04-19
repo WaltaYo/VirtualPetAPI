@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import org.wecancodeit.Models.Enums.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
@@ -123,6 +125,7 @@ public class OrganicPetModel extends PetModel {
         return petFixed;
     }
 
+    @JsonIgnore
     public ShelterModel getShelterModel() {
         return shelterModel;
     }

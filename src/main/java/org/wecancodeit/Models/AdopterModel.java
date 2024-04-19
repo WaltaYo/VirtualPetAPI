@@ -15,6 +15,7 @@ public class AdopterModel extends ContactModel {
     private PetTypeEnum preferredPetType;
     private AdoptionStatusEnum adoptionStatus;
     private String notes;
+    // private Long SHELTER_MODEL_ID;
 
     @ManyToOne
     private ShelterModel shelterModel;
@@ -67,7 +68,8 @@ public class AdopterModel extends ContactModel {
     public String getNotes() {
         return notes;
     }
-
+    
+    @JsonIgnore
     public ShelterModel getShelterModel() {
         return shelterModel;
     }
@@ -75,6 +77,16 @@ public class AdopterModel extends ContactModel {
     @JsonIgnore
     public void setShelterModel(ShelterModel shelterModel) {
         this.shelterModel = shelterModel;
+    }
+
+    
+
+    public Long getShelterModelId(ShelterModel shelterModel) {
+        return shelterModel.getID() ;
+    }
+
+    public void setShelterModelId(ShelterModel shelterModel, Long iD) {
+        this.shelterModel.getID();
     }
 
     /**

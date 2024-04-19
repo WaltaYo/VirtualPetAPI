@@ -2,6 +2,7 @@ package org.wecancodeit.Services;
 
 import java.util.*;
 import org.springframework.stereotype.Service;
+import org.wecancodeit.Dto.ShelterLookupDto;
 import org.wecancodeit.Models.*;
 import org.wecancodeit.Repositories.*;
 import jakarta.annotation.Resource;
@@ -28,6 +29,23 @@ public class ShelterService {
      */
     public ShelterService(ShelterRepository shelterRepository) {
         this.shelterRepository = shelterRepository;
+    }
+
+    /**
+     * Method to look up shelter by id (for combo box)
+     * @return
+     */
+    public Iterable<ShelterLookupDto> getLookUp() {
+        ArrayList<ShelterLookupDto> lookUp = new ArrayList<>();
+        try {
+           Iterable<ShelterModel> shelters = shelterRepository.findAll();
+           for (ShelterModel shelter : shelters){
+            lookUp.add(new ShelterLookupDto(shelter));
+           }
+        } catch (Exception ex) {
+            throw ex;
+        }
+        return lookUp;
     }
 
     /**
