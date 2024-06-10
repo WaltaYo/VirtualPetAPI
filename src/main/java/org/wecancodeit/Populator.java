@@ -8,10 +8,13 @@ import org.wecancodeit.Services.*;
 
 import jakarta.annotation.Resource;
 
+/*
+ * Class that populates the database
+ */
 @Component
 public class Populator implements CommandLineRunner {
 
-        @Resource // ADD ALL THE SERVICES HERE, SO WE CAN POPULATE OUR DATABASE
+        @Resource // All services added here to populate database
         private final AdopterService adopterService;
 
         @Resource
@@ -32,8 +35,9 @@ public class Populator implements CommandLineRunner {
         @Resource
         private final VolunteerService volunteerService;
 
-        // THEN GENERATE CONSTRUCTOR W/ ALL OBJECTS
-
+        /*
+         * Constructor for this class with all the services
+         */
         public Populator(AdopterService adopterService, OrganicPetService organicPetService,
                         RoboticPetService roboticPetService, PetMaintenanceService petMaintenanceService,
                         PetTaskScheduleService petTaskScheduleService, ShelterService shelterService,
@@ -50,27 +54,27 @@ public class Populator implements CommandLineRunner {
         @Override
         public void run(String... args) throws Exception {
 
+                //Volunteer 1. Need to set volunteer fist so we can set shelter w/ volunteer
                 VolunteerModel volunteerModel1 = new VolunteerModel("Walta", "address 1",
                                 "address 2", "Grandview", "OH", "432012", "000000000",
                                 "wow2@gmail.com", "volunteer pic goes here");
                 volunteerModel1.setID(1L);
                 volunteerService.saveVolunteer(volunteerModel1);
 
-
-                // Shelter 1
+                // Shelter 1 with volunteer 1
                 ShelterModel shelterModel1 = new ShelterModel("Intake Shelter", "2125 This Way",
                                 "Ste 200", "Heron", "OH", "43221", "6148888888",
                                 "wow1@gmail.com", "image path will go here", "website");
                 shelterModel1.setID(1L);
-                shelterModel1.getVolunteers().add(volunteerModel1);
+                shelterModel1.getVolunteers().add(volunteerModel1); //added volunteer 1 to shelter 1
                 shelterService.saveShelter(shelterModel1);
 
-                // Shelter 2
+                // Shelter 2 also has volunteer 1
                 ShelterModel shelterModel2 = new ShelterModel("Organic Cat Shelter", "2125 This Way",
                                 "Ste 201", "Heron", "OH", "43001", "614888888",
                                 "wow3@gmail.com", "image path will go here", "website");
                 shelterModel2.setID(2L);
-                shelterModel2.getVolunteers().add(volunteerModel1);
+                shelterModel2.getVolunteers().add(volunteerModel1); //added volunteer 1 to shelter 2
                 shelterService.saveShelter(shelterModel2);
 
                 // Shelter 3
@@ -101,20 +105,22 @@ public class Populator implements CommandLineRunner {
                 shelterModel6.setID(6L);
                 shelterService.saveShelter(shelterModel6);
 
-                // VOLUNTEERS
-
+                // The rest of the volunteers
+                // volunteer 2
                 VolunteerModel volunteerModel2 = new VolunteerModel("Tammy", "address 1",
                                 "address 2", "Gahanna", "OH", "432012", "000000000",
                                 "wow4@gmail.com", "volunteer pic goes here");
                 volunteerModel2.setID(2L);
                 volunteerService.saveVolunteer(volunteerModel2);
 
+                // volunteer 3
                 VolunteerModel volunteerModel3 = new VolunteerModel("Yacob", "address 1",
                                 "address 2", "Colubus", "OH", "432012", "000000000",
                                 "wow7@gmail.com", "volunteer pic goes here");
                 volunteerModel3.setID(3L);
                 volunteerService.saveVolunteer(volunteerModel3);
 
+                // volunteer 4
                 VolunteerModel volunteerModel4 = new VolunteerModel("Ariam", "address 1",
                                 "address 2", "Reynoldsburg", "OH", "432012", "000000000",
                                 "wow8@gmail.com", "volunteer pic goes here");
@@ -122,6 +128,7 @@ public class Populator implements CommandLineRunner {
                 volunteerService.saveVolunteer(volunteerModel4);
 
                 // ADOPTERS
+                // Adopter 1
                 AdopterModel adopterModel1 = new AdopterModel("Lina", "Adress 1", "Address 2", "London",
                                 "OH", "00000", "222216666", "wow12@gmail.com", "image in here", PetTypeEnum.ROBOTIC_CAT,
                                 AdoptionStatusEnum.PENDING,
@@ -130,6 +137,7 @@ public class Populator implements CommandLineRunner {
                 adopterModel1.setShelterModel(shelterModel1); // added adopter to shelter 1
                 adopterService.saveAdopter(adopterModel1);
 
+                // Adopter 2
                 AdopterModel adopterModel2 = new AdopterModel("Hansel", "Adress 1", "Address 2", "Birmingham",
                                 "MI", "22222", "689453217", "wow13@gmail.com", "pic will go here", PetTypeEnum.CAT,
                                 AdoptionStatusEnum.REQUESTED,

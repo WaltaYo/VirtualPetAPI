@@ -3,7 +3,6 @@ package org.wecancodeit.Controllers;
 import org.springframework.web.bind.annotation.*;
 import org.wecancodeit.Dto.AdopterDto;
 import org.wecancodeit.Models.AdopterModel;
-import org.wecancodeit.Models.ShelterModel;
 import org.wecancodeit.Services.AdopterService;
 
 import jakarta.annotation.Resource;
