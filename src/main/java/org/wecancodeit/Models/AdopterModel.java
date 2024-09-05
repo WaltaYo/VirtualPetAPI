@@ -9,7 +9,8 @@ import jakarta.persistence.*;
 /**
  * Class that models the adopters
  */
-@Entity
+@Entity //marks this class as persistent domain object. Needs to be recognized by JPA in order to be managed by ORM
+  
 @Table(name = "t_Adopters")
 public class AdopterModel extends ContactModel {
     private PetTypeEnum preferredPetType;
